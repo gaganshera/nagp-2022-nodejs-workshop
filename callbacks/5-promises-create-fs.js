@@ -8,10 +8,8 @@ const fs = require("fs");
 //   }
 // });
 
-console.log("TEST");
-
 function readFilePromise() {
-  return new Promise((resolve, reject) => {
+  const prom = new Promise((resolve, reject) => {
     fs.readFile(__filename, function cb(err, data) {
       if (err) {
         reject(err);
@@ -20,6 +18,7 @@ function readFilePromise() {
       }
     });
   });
+  return prom;
 }
 
 readFilePromise()
@@ -29,3 +28,5 @@ readFilePromise()
   .catch((err) => {
     console.log("Error", err);
   });
+
+console.log("TEST");
